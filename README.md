@@ -14,8 +14,6 @@ Unlike enterprise ALZ designs that span multiple subscriptions and management gr
 
 ![Architecture](docs/architecture.png)
 
-> Edit the source: [`docs/architecture.drawio`](docs/architecture.drawio)
-
 **What gets deployed:**
 
 - **Logging** — Log Analytics Workspace, Storage Account, Automation Account
@@ -32,7 +30,7 @@ This landing zone is available in both Bicep and Terraform, using Azure Verified
 | Implementation | Directory | Details |
 |----------------|-----------|---------|
 | **Bicep** | [`bicep/platform/`](bicep/platform/) | Uses `br/public:avm/...` registry modules |
-| **Terraform** | [`tf/`](tf/) | Uses `Azure/avm-.../azurerm` registry modules |
+| **Terraform** | [`tf/platform/`](tf/platform/) | Uses `Azure/avm-.../azurerm` registry modules |
 
 Both implementations deploy the same architecture and are functionally equivalent. Pick whichever matches your team's tooling.
 

@@ -6,8 +6,6 @@ Platform deployment for an Azure Landing Zone for Small/Medium Business using a 
 
 ![Architecture](../../docs/architecture.png)
 
-> Edit the source: [`docs/architecture.drawio`](../../docs/architecture.drawio) — open with the [Draw.io VS Code extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) or [app.diagrams.net](https://app.diagrams.net).
-
 ## Azure Verified Modules Used
 
 | Module | Version | Purpose |
@@ -55,7 +53,7 @@ bicep/
 ## Prerequisites
 
 - Azure CLI with Bicep extension (`az bicep install`)
-- Azure PowerShell module (`Az.Accounts`, `Az.Resources`)
+- PowerShell (for the deployment wrapper script)
 - Subscription-level permissions (Owner or Contributor + User Access Administrator)
 
 ## Deployment

@@ -4,9 +4,7 @@ Terraform implementation of the platform deployment for an Azure Landing Zone fo
 
 ## Architecture
 
-![Architecture](../docs/architecture.png)
-
-> Edit the source: [`docs/architecture.drawio`](../docs/architecture.drawio) — open with the [Draw.io VS Code extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) or [app.diagrams.net](https://app.diagrams.net).
+![Architecture](../../docs/architecture.png)
 
 ## Azure Verified Modules Used
 
@@ -31,24 +29,26 @@ Native `azurerm` resources are used for VPN/ER Gateway, policy assignments, and 
 
 ```
 tf/
-├── main.tf                                 # Main orchestration (resource groups + modules)
-├── variables.tf                            # Input variables
-├── outputs.tf                              # Outputs
-├── providers.tf                            # Provider versions & config
-├── terraform.tfvars                        # Default variable values
-├── modules/
-│   ├── logging/                            # LAW, Storage, Automation Account
-│   ├── networking/                         # VNET, NSGs, Route Tables, Subnets
-│   ├── key-vault/                          # Key Vault (RBAC, private, purge-protected)
-│   ├── bastion/                            # Azure Bastion (optional)
-│   ├── firewall/                           # Azure Firewall + Policy (optional)
-│   ├── gateway/                            # VPN / ExpressRoute Gateway (optional)
-│   ├── dns-resolver/                       # Private DNS Resolver (optional)
-│   ├── private-dns-zones/                  # Private Link DNS Zones
-│   ├── policy-assignments/                 # ALZ + MCSB + Sovereignty policy assignments
-│   └── subnet-policy-exemption/            # NSG policy exemptions for special subnets
-├── deploy.ps1                              # PowerShell deployment wrapper
-└── README.md
+├── platform/                               # This directory
+│   ├── main.tf                             # Main orchestration (resource groups + modules)
+│   ├── variables.tf                        # Input variables
+│   ├── outputs.tf                          # Outputs
+│   ├── providers.tf                        # Provider versions & config
+│   ├── terraform.tfvars                    # Default variable values
+│   ├── modules/
+│   │   ├── logging/                        # LAW, Storage, Automation Account
+│   │   ├── networking/                     # VNET, NSGs, Route Tables, Subnets
+│   │   ├── key-vault/                      # Key Vault (RBAC, private, purge-protected)
+│   │   ├── bastion/                        # Azure Bastion (optional)
+│   │   ├── firewall/                       # Azure Firewall + Policy (optional)
+│   │   ├── gateway/                        # VPN / ExpressRoute Gateway (optional)
+│   │   ├── dns-resolver/                   # Private DNS Resolver (optional)
+│   │   ├── private-dns-zones/              # Private Link DNS Zones
+│   │   ├── policy-assignments/             # ALZ + MCSB + Sovereignty policy assignments
+│   │   └── subnet-policy-exemption/        # NSG policy exemptions for special subnets
+│   ├── deploy.ps1                          # PowerShell deployment wrapper
+│   └── README.md
+└── (workload examples — planned)
 ```
 
 ## Prerequisites
