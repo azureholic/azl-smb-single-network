@@ -1,0 +1,104 @@
+<mxfile host="65bd71144e">
+  <diagram id="arch" name="Architecture">
+    <mxGraphModel dx="1100" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Subscription -->
+        <mxCell id="sub" value="Subscription (Platform + Workload)" style="swimlane;fontStyle=1;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;arcSize=3;collapsible=0;fontSize=14;swimlaneLine=0;" vertex="1" parent="1">
+          <mxGeometry x="10" y="10" width="990" height="780" as="geometry"/>
+        </mxCell>
+
+        <!-- rg-*-logging -->
+        <mxCell id="rg-log" value="rg-*-logging" style="swimlane;fontStyle=1;startSize=28;fillColor=#fff2cc;strokeColor=#d6b656;rounded=1;arcSize=8;collapsible=0;fontSize=12;swimlaneLine=0;" vertex="1" parent="sub">
+          <mxGeometry x="25" y="45" width="260" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="log1" value="Log Analytics Workspace" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="rg-log">
+          <mxGeometry x="15" y="38" width="230" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="log2" value="Storage Account" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="rg-log">
+          <mxGeometry x="15" y="78" width="230" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="log3" value="Automation Account" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="rg-log">
+          <mxGeometry x="15" y="118" width="230" height="32" as="geometry"/>
+        </mxCell>
+
+        <!-- rg-*-security -->
+        <mxCell id="rg-sec" value="rg-*-security" style="swimlane;fontStyle=1;startSize=28;fillColor=#f8cecc;strokeColor=#b85450;rounded=1;arcSize=8;collapsible=0;fontSize=12;swimlaneLine=0;" vertex="1" parent="sub">
+          <mxGeometry x="25" y="245" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="sec1" value="Key Vault (RBAC, private)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=11;" vertex="1" parent="rg-sec">
+          <mxGeometry x="15" y="40" width="230" height="32" as="geometry"/>
+        </mxCell>
+
+        <!-- rg-*-dns -->
+        <mxCell id="rg-dns" value="rg-*-dns" style="swimlane;fontStyle=1;startSize=28;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;arcSize=8;collapsible=0;fontSize=12;swimlaneLine=0;" vertex="1" parent="sub">
+          <mxGeometry x="25" y="365" width="260" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="dns1" value="Private DNS Zones (all Private Link)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;" vertex="1" parent="rg-dns">
+          <mxGeometry x="15" y="40" width="230" height="32" as="geometry"/>
+        </mxCell>
+
+        <!-- rg-*-networking -->
+        <mxCell id="rg-net" value="rg-*-networking" style="swimlane;fontStyle=1;startSize=28;fillColor=#e1d5e7;strokeColor=#9673a6;rounded=1;arcSize=8;collapsible=0;fontSize=12;swimlaneLine=0;" vertex="1" parent="sub">
+          <mxGeometry x="315" y="45" width="460" height="420" as="geometry"/>
+        </mxCell>
+
+        <!-- VNET -->
+        <mxCell id="vnet" value="VNET (10.0.0.0/16)" style="swimlane;fontStyle=1;startSize=26;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;rounded=1;arcSize=6;collapsible=0;fontSize=11;swimlaneLine=0;" vertex="1" parent="rg-net">
+          <mxGeometry x="15" y="38" width="430" height="232" as="geometry"/>
+        </mxCell>
+        <mxCell id="sn1" value="GatewaySubnet (optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;dashed=1;fontSize=10;" vertex="1" parent="vnet">
+          <mxGeometry x="10" y="32" width="250" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="sn2" value="AzureFirewallSubnet (optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;dashed=1;fontSize=10;" vertex="1" parent="vnet">
+          <mxGeometry x="10" y="65" width="250" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="sn3" value="AzureBastionSubnet (optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;dashed=1;fontSize=10;" vertex="1" parent="vnet">
+          <mxGeometry x="10" y="98" width="250" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="sn4" value="snet-dns-inbound (optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;dashed=1;fontSize=10;" vertex="1" parent="vnet">
+          <mxGeometry x="10" y="131" width="250" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="sn5" value="snet-dns-outbound (optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;dashed=1;fontSize=10;" vertex="1" parent="vnet">
+          <mxGeometry x="10" y="164" width="250" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="sn6" value="snet-workload" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontSize=10;fontStyle=1;" vertex="1" parent="vnet">
+          <mxGeometry x="10" y="197" width="250" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- Optional services in networking RG -->
+        <mxCell id="svc1" value="Azure Bastion (optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;fontSize=10;" vertex="1" parent="rg-net">
+          <mxGeometry x="15" y="285" width="205" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="svc2" value="Azure Firewall (optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;fontSize=10;" vertex="1" parent="rg-net">
+          <mxGeometry x="235" y="285" width="205" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="svc3" value="VPN / ER Gateway (optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;fontSize=10;" vertex="1" parent="rg-net">
+          <mxGeometry x="15" y="325" width="205" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="svc4" value="Private DNS Resolver (optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;fontSize=10;" vertex="1" parent="rg-net">
+          <mxGeometry x="235" y="325" width="205" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Policy Assignments -->
+        <mxCell id="pol" value="Policy Assignments (subscription scope)" style="swimlane;fontStyle=1;startSize=26;fillColor=#e6d0de;strokeColor=#996185;rounded=1;arcSize=6;collapsible=0;fontSize=11;swimlaneLine=0;" vertex="1" parent="sub">
+          <mxGeometry x="25" y="490" width="480" height="270" as="geometry"/>
+        </mxCell>
+        <mxCell id="pol-text" value="&lt;b&gt;Security Baseline&lt;/b&gt;&lt;br&gt;- MCSB (Microsoft Cloud Security Benchmark)&lt;br&gt;- Sovereignty Baseline - Global (optional)&lt;br&gt;- Sovereignty Baseline - Confidential (optional)&lt;br&gt;&lt;br&gt;&lt;b&gt;Audit / Deny&lt;/b&gt;&lt;br&gt;- Allowed Locations&lt;br&gt;- Audit VMs without Managed Disks&lt;br&gt;- Deny Public IP on NIC&lt;br&gt;- Secure Transfer + TLS 1.2 for Storage&lt;br&gt;- Audit Subnets without NSG&lt;br&gt;- Audit Resource Location matches RG&lt;br&gt;&lt;br&gt;&lt;b&gt;Deploy If Not Exists&lt;/b&gt;&lt;br&gt;- Activity Log to Log Analytics&lt;br&gt;- Defender: Servers, Storage, SQL, KV, ARM, DNS" style="text;html=1;fontSize=10;align=left;verticalAlign=top;spacingLeft=5;spacingTop=2;" vertex="1" parent="pol">
+          <mxGeometry x="10" y="30" width="460" height="230" as="geometry"/>
+        </mxCell>
+
+        <!-- Policy Exemptions -->
+        <mxCell id="exempt" value="Policy Exemptions (conditional)" style="swimlane;fontStyle=1;startSize=26;fillColor=#ffe0b2;strokeColor=#e65100;rounded=1;arcSize=6;collapsible=0;fontSize=11;swimlaneLine=0;" vertex="1" parent="sub">
+          <mxGeometry x="525" y="490" width="250" height="270" as="geometry"/>
+        </mxCell>
+        <mxCell id="exempt-text" value="Scoped to MCSB assignment,&lt;br&gt;NSG policy exemptions:&lt;br&gt;&lt;br&gt;- GatewaySubnet&lt;br&gt;- AzureFirewallSubnet" style="text;html=1;fontSize=10;align=left;verticalAlign=top;spacingLeft=5;spacingTop=2;" vertex="1" parent="exempt">
+          <mxGeometry x="10" y="30" width="230" height="230" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
